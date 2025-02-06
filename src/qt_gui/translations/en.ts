@@ -233,7 +233,7 @@
 		</message>
 		<message>
 			<source>Boot Game</source>
-			<translation>Boot Game</translation>
+			<translation>Boot Game (PKG/ELF)</translation>
 		</message>
 		<message>
 			<source>Check for Updates</source>
