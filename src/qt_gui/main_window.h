@@ -64,7 +64,7 @@ private:
     void SetLastIconSizeBullet();
     void SetUiIcons(bool isWhite);
     void InstallPkg();
-    void BootGame();
+    void BootGameELF();
     void AddRecentFiles(QString filePath);
     void LoadTranslation();
     void PlayBackgroundMusic();
