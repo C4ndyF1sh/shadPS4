@@ -240,8 +240,8 @@
 			<translation>Pakete installieren (PKG)</translation>
 		</message>
 		<message>
-			<source>Boot Game</source>
-			<translation>Spiel starten</translation>
+			<source>Boot Game (ELF)</source>
+			<translation>Spiel starten (ELF)</translation>
 		</message>
 		<message>
 			<source>Check for Updates</source>
