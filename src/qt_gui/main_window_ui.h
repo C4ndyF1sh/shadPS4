@@ -327,7 +327,7 @@ public:
             QCoreApplication::translate("MainWindow", "Open/Add Elf Folder", nullptr));
         bootInstallPkgAct->setText(
             QCoreApplication::translate("MainWindow", "Install Packages (PKG)", nullptr));
-        bootGameAct->setText(QCoreApplication::translate("MainWindow", "Boot Game", nullptr));
+        bootGameAct->setText(QCoreApplication::translate("MainWindow", "Boot Game (PKG/ELF)", nullptr));
 #ifdef ENABLE_UPDATER
         updaterAct->setText(
             QCoreApplication::translate("MainWindow", "Check for Updates", nullptr));
