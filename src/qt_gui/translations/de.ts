@@ -241,7 +241,7 @@
 		</message>
 		<message>
 			<source>Boot Game</source>
-			<translation>Spiel starten</translation>
+			<translation>Spiel starten (PKG/ELF)</translation>
 		</message>
 		<message>
 			<source>Check for Updates</source>
