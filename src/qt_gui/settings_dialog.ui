@@ -193,7 +193,6 @@
                   </widget>
                  </item>
                  <item>
-                 <item>
                   <widget class="QCheckBox" name="ps4proCheckBox">
                    <property name="text">
                     <string>Is PS4 Pro</string>
