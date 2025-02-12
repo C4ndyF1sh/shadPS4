@@ -311,6 +311,9 @@ SettingsDialog::SettingsDialog(std::span<const QString> physical_devices,
         ui->hostMarkersCheckBox->installEventFilter(this);
         ui->collectShaderCheckBox->installEventFilter(this);
         ui->copyGPUBuffersCheckBox->installEventFilter(this);
+
+        // Experimental
+        ui->ps4proCheckBox->installEventFilter(this);
     }
 }
 
@@ -373,6 +376,7 @@ void SettingsDialog::LoadValuesFromConfig() {
         toml::find_or<bool>(data, "General", "separateUpdateEnabled", false));
     ui->gameSizeCheckBox->setChecked(toml::find_or<bool>(data, "GUI", "loadGameSizeEnabled", true));
     ui->showSplashCheckBox->setChecked(toml::find_or<bool>(data, "General", "showSplash", false));
+    ui->ps4proCheckBox->setChecked(toml::find_or<bool>(data,"Experimental", "isPS4Pro", false));
     ui->logTypeComboBox->setCurrentText(
         QString::fromStdString(toml::find_or<std::string>(data, "General", "logType", "async")));
     ui->logFilterLineEdit->setText(
