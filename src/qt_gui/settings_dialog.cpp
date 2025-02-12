@@ -311,6 +311,9 @@ SettingsDialog::SettingsDialog(std::span<const QString> physical_devices,
         ui->hostMarkersCheckBox->installEventFilter(this);
         ui->collectShaderCheckBox->installEventFilter(this);
         ui->copyGPUBuffersCheckBox->installEventFilter(this);
+
+        // Experimental
+        ui->ps4proCheckBox->installEventFilter(this);
     }
 }
 
@@ -373,6 +376,7 @@ void SettingsDialog::LoadValuesFromConfig() {
         toml::find_or<bool>(data, "General", "separateUpdateEnabled", false));
     ui->gameSizeCheckBox->setChecked(toml::find_or<bool>(data, "GUI", "loadGameSizeEnabled", true));
     ui->showSplashCheckBox->setChecked(toml::find_or<bool>(data, "General", "showSplash", false));
+    ui->ps4proCheckBox->setChecked(toml::find_or<bool>(data,"Experimental", "isPS4Pro", false));
     ui->logTypeComboBox->setCurrentText(
         QString::fromStdString(toml::find_or<std::string>(data, "General", "logType", "async")));
     ui->logFilterLineEdit->setText(
@@ -512,6 +516,8 @@ void SettingsDialog::updateNoteTextEdit(const QString& elementName) {
         text = tr("fullscreenCheckBox");
     } else if (elementName == "separateUpdatesCheckBox") {
         text = tr("separateUpdatesCheckBox");
+    } else if (elementName == "ps4proCheckBox") {
+        text = tr("ps4proCheckBox");
     } else if (elementName == "showSplashCheckBox") {
         text = tr("showSplashCheckBox");
     } else if (elementName == "discordRPCCheckbox") {
@@ -631,10 +637,12 @@ void SettingsDialog::UpdateSettings() {
 
     const QVector<std::string> TouchPadIndex = {"left", "center", "right", "none"};
     Config::setBackButtonBehavior(TouchPadIndex[ui->backButtonBehaviorComboBox->currentIndex()]);
+    Config::setNeoMode(ui->ps4proCheckBox->isChecked());
     Config::setIsFullscreen(ui->fullscreenCheckBox->isChecked());
     Config::setFullscreenMode(ui->fullscreenModeComboBox->currentText().toStdString());
     Config::setIsMotionControlsEnabled(ui->motionControlsCheckBox->isChecked());
     Config::setisTrophyPopupDisabled(ui->disableTrophycheckBox->isChecked());
+    Config::setNeoMode(ui->ps4proCheckBox->isChecked());
     Config::setPlayBGM(ui->playBGMCheckBox->isChecked());
     Config::setAllowHDR(ui->enableHDRCheckBox->isChecked());
     Config::setLogType(ui->logTypeComboBox->currentText().toStdString());
@@ -712,5 +720,6 @@ void SettingsDialog::ResetInstallFolders() {
             ui->gameFoldersListWidget->addItem(item);
         }
         Config::setGameInstallDirs(settings_install_dirs_config);
+      }
     }
 }
