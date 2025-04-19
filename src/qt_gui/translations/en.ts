@@ -232,8 +232,8 @@
 			<translation>Install Packages (PKG)</translation>
 		</message>
 		<message>
-			<source>Boot Game</source>
-			<translation>Boot Game</translation>
+			<source>Boot Game (ELF)</source>
+			<translation>Boot Game (ELF)</translation>
 		</message>
 		<message>
 			<source>Check for Updates</source>

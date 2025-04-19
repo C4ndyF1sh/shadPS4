@@ -10,7 +10,7 @@
 class Ui_MainWindow {
 public:
     QAction* bootInstallPkgAct;
-    QAction* bootGameAct;
+    QAction* bootGameELFAct;
     QAction* addElfFolderAct;
     QAction* shadFolderAct;
     QAction* exitAct;
@@ -84,9 +84,9 @@ public:
         bootInstallPkgAct = new QAction(MainWindow);
         bootInstallPkgAct->setObjectName("bootInstallPkgAct");
         bootInstallPkgAct->setIcon(QIcon(":images/file_icon.png"));
-        bootGameAct = new QAction(MainWindow);
-        bootGameAct->setObjectName("bootGameAct");
-        bootGameAct->setIcon(QIcon(":images/play_icon.png"));
+        bootGameELFAct = new QAction(MainWindow);
+        bootGameELFAct->setObjectName("bootGameAct");
+        bootGameELFAct->setIcon(QIcon(":images/play_icon.png"));
         addElfFolderAct = new QAction(MainWindow);
         addElfFolderAct->setObjectName("addElfFolderAct");
         addElfFolderAct->setIcon(QIcon(":images/folder_icon.png"));
@@ -277,7 +277,7 @@ public:
         menuBar->addAction(menuSettings->menuAction());
         menuBar->addAction(menuHelp->menuAction());
         menuFile->addAction(bootInstallPkgAct);
-        menuFile->addAction(bootGameAct);
+        menuFile->addAction(bootGameELFAct);
         menuFile->addSeparator();
         menuFile->addAction(addElfFolderAct);
         menuFile->addAction(shadFolderAct);
@@ -327,7 +327,7 @@ public:
             QCoreApplication::translate("MainWindow", "Open/Add Elf Folder", nullptr));
         bootInstallPkgAct->setText(
             QCoreApplication::translate("MainWindow", "Install Packages (PKG)", nullptr));
-        bootGameAct->setText(QCoreApplication::translate("MainWindow", "Boot Game", nullptr));
+        bootGameAct->setText(QCoreApplication::translate("MainWindow", "Boot Game (ELF)", nullptr));
 #ifdef ENABLE_UPDATER
         updaterAct->setText(
             QCoreApplication::translate("MainWindow", "Check for Updates", nullptr));
